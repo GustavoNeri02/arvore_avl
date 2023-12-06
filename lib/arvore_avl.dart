@@ -12,21 +12,21 @@ class ArvoreBinariaAVL extends ArvoreBinaria {
   }
 
   void inserirNoBalanceado(NoArvore? noArvore, int valor) {
-    final firstBF = getBalanceFactor();
-    print('- - - - - - - - - - - - - - - - - - - - -');
-    print('Balance Factor antes da inserção de $valor: $firstBF');
+    // final firstBF = getBalanceFactor();
+    // print('- - - - - - - - - - - - - - - - - - - - -');
+    // print('Balance Factor antes da inserção de $valor: $firstBF');
     super.inserirNo(noArvore, valor);
     final secondBF = getBalanceFactor();
 
-    print('Balance Factor depois da inserção de $valor: $secondBF');
+    // print('Balance Factor depois da inserção de $valor: $secondBF');
 
     if (secondBF == 0 || secondBF == 1 || secondBF == -1) {
-      print('Árvore balanceada!');
+      // print('Árvore balanceada!');
     } else {
-      print(
-          'Árvore desbalanceada à ${secondBF == -2 ? 'esquerda' : 'direita'}!');
-      imprimirEmNivel();
-      print('Balanceando...');
+      // print(
+      //     'Árvore desbalanceada à ${secondBF == -2 ? 'esquerda' : 'direita'}!');
+      // imprimirEmNivel();
+      // print('Balanceando...');
       // Adicionado à esquerda
       if (secondBF <= -2) {
         // A inserção foi à direita da subárvore esquerda (LL).
@@ -45,16 +45,14 @@ class ArvoreBinariaAVL extends ArvoreBinaria {
           rotacaoDuplaDireita();
         }
       }
-      print(
-          'Balance Factor depois do balanceamento de $valor: ${getBalanceFactor()}');
+      // print(
+      //     'Balance Factor depois do balanceamento de $valor: ${getBalanceFactor()}');
     }
 
-    // print('Imprimindo em ordem:');
-    // imprimirEmOrdem(raiz);
-    print('Imprimindo em nível:');
-    imprimirEmNivel();
+    // print('Imprimindo em nível:');
+    // imprimirEmNivel();
 
-    print('- - - - - - - - - - - - - - - - - - - - -\n');
+    // print('- - - - - - - - - - - - - - - - - - - - -\n');
   }
 
   /// Função para realizar a rotação LL em uma árvore AVL
