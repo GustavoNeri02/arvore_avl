@@ -67,7 +67,7 @@ void executar_arvore_avl(List<int> dados) {
   print('início...');
   DateTime dataInicial = DateTime.now();
 
-  print('Arvore Rubro Negra:');
+  print('Arvore AVL:');
 
   final ArvoreBinariaAVL arvoreBinariaAVL = ArvoreBinariaAVL(raiz: NoArvore(0));
 
