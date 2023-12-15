@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:arvore_avl/arvore_avl.dart';
-import 'package:arvore_avl/no_arvore.dart';
+import 'package:arvore_avl/arvore_rubro_negra.dart';
 
 List<int> readIntegerListFromFile(String filePath) {
   try {
@@ -24,14 +23,18 @@ void main(List<String> arguments) {
   final dados = readIntegerListFromFile('assets/dados100_mil.txt');
   print('início...');
   DateTime dataInicial = DateTime.now();
-  final ArvoreBinariaAVL arvoreAVL = ArvoreBinariaAVL(raiz: NoArvore(dados[0]));
+
+  print('Arvore Rubro Negra:');
+  ;
+  final ArvoreRubroNegra arvoreRN = ArvoreRubroNegra(NoArvoreRN(0));
+
   for (var num in dados) {
-    arvoreAVL.inserirNoBalanceado(arvoreAVL.raiz, num);
+    arvoreRN.inserirNoBalanceado(arvoreRN.raiz, num);
   }
   print(
-      'Tempo para criar Árvore AVL balanceada: ${DateTime.now().difference(dataInicial).inSeconds}s');
+      'Tempo para criar Árvore RubroNegro balanceada: ${DateTime.now().difference(dataInicial).inSeconds}s');
   dataInicial = DateTime.now();
-  arvoreAVL.imprimirEmOrdem(arvoreAVL.raiz);
+  arvoreRN.imprimirEmOrdem(arvoreRN.raiz);
   print(
       'Tempo para imprimir em ordem Árvore AVL balanceada: ${DateTime.now().difference(dataInicial).inSeconds}s');
   print('fim...');
