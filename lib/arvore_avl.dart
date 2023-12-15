@@ -92,4 +92,24 @@ class ArvoreBinariaAVL extends ArvoreBinaria {
     raiz.direita = rotacaoSimplesEsquerda(raiz.direita!);
     raiz = rotacaoSimplesDireita(raiz);
   }
+
+  int contarOcorrencias(int valor) {
+    return _contarOcorrencias(raiz, valor);
+  }
+
+  int _contarOcorrencias(NoArvore? no, int valor) {
+    if (no == null) {
+      return 0;
+    }
+
+    int contagem = 0;
+    if (no.valor == valor) {
+      contagem++;
+    }
+
+    contagem += _contarOcorrencias(no.esquerda, valor);
+    contagem += _contarOcorrencias(no.direita, valor);
+
+    return contagem;
+  }
 }
